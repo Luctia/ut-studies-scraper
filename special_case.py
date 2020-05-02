@@ -2,6 +2,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 import urllib3
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
@@ -39,10 +40,6 @@ class SpecialCase:
         print('Occurrences found:\nEnschede\tTwente\tUniversity of Twente\tUniversiteit Twente\n'
               '%s\t\t\t%s\t\t%s\t\t\t\t\t\t%s'
               % (ens_occ, twent_occ, uni1_occ, uni2_occ))
-        trust = ens_occ+2*twent_occ+4*uni1_occ+4*uni2_occ
+        trust = ens_occ + 2 * twent_occ + 4 * uni1_occ + 4 * uni2_occ
         print('Leading to a total trust of %s.\nThis %s the test.\n' % (trust, 'passes' if trust >= 4 else 'fails'))
         return trust >= 4
-
-
-garestudie = SpecialCase('https://www.msc-gima.nl/programme-introduction/', 1)
-print(garestudie.check_validity())
