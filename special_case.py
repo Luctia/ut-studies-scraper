@@ -7,12 +7,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class SpecialCase:
-    def __init__(self, url, croho):
+    def __init__(self, url, croho, special_name=""):
         self.checking_url = url
         self.croho = croho
+        self.name = special_name
 
     def check_validity(self):
-        print('Starting validitycheck for ' + self.checking_url)
+        print('Starting validitycheck for ' + self.name + "...")
         page = requests.get(self.checking_url, timeout=10, verify=False)
         soup = BeautifulSoup(page.content, 'html.parser')
         text = soup.find_all(text=True)

@@ -38,6 +38,5 @@ def scrape_croho_codes():
             print('An error occurred when trying to access ' + link)
         time.sleep(0.5)
 
-    print('Finished extracting CROHO codes from collected links. Found:')
-    print(croho_codes)
+    print('Finished extracting CROHO codes from collected links. Found ' + str(len(croho_codes)) + " codes.\n")
     return croho_codes
